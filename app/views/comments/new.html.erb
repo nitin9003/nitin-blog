@@ -1,0 +1,14 @@
+<%= link_to("<<Back to List", {:action => 'list', :post_id => @post.id}, :class => 'back-link') %>
+
+<div class="comment new">
+  <h2>Post Comment</h2>
+  <%= form_for(:comment, :html => { :multipart => true }, :url => {:action => 'create', :post_id => @post.id}) do |f| %>
+  
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+   
+    <div class="form-buttons">
+       <%= submit_tag("Post Comment") %>
+    </div>
+
+  <% end %>
+</div>

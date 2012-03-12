@@ -1,0 +1,28 @@
+<%= @page_title = "Posts List" %> 
+
+<%= link_to("<<Back to Menu", {:controller => 'access', :action => 'list'}, :class => 'back-link') %>
+
+<div class="post list"> 
+  <h2>Posts</h2>
+
+ <%= link_to("Add New Post", {:action => 'new'}, :class => 'action new') %>
+  <table class="listing" summary="Post list">
+    <tr class="header">
+      <th>Post Name</th>
+      <th>Post Content</th>
+      <th>Actions</th>
+    </tr>
+    <% @posts.each do |post| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= post.name %></td>
+      <td><%= post.content %></td>
+       <td class="actions">
+        <%= link_to("View Comments", {:controller => 'comments', :action => 'list', :post_id => post.id}, :class => 'action show') %>  
+        <%= link_to("Show", {:action => 'show', :id => post.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => post.id}, :class => 'action edit') %>
+        <%= link_to("Delete",{:action => 'delete', :id => post.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,23 @@
+<%= link_to("<<Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="post show">
+  <h2>Show Posts</h2>
+  <table summary="Post detail view">
+    <tr>
+      <th>Posts</th>
+      <td><%= @post.name %></td>
+    </tr>
+    <tr>
+      <th>Content</th>
+      <td><%= @post.content %></td>
+    </tr>
+    <tr> 
+      <th>Created</th>
+      <td><%= @post.created_at %></td>
+    </tr> 
+    <tr>
+      <th>Updated</th>
+      <td><%= @post.updated_at %></td>
+    </tr>
+  </table>
+</div>

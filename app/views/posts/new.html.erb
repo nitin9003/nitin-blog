@@ -1,0 +1,14 @@
+<%= link_to("<<Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="post new">
+  <h2>Create Post</h2>
+  <%= form_for(:post, :html => { :multipart => true }, :url => {:action => 'create'}) do |f| %>
+  
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+   
+    <div class="form-buttons">
+       <%= submit_tag("Create Post") %>
+    </div>
+
+  <% end %>
+</div>
