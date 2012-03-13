@@ -1,6 +1,6 @@
 <%= @page_title = "Posts List" %> 
 
-<%= link_to("<<Back to Menu", {:controller => 'access', :action => 'list'}, :class => 'back-link') %>
+<%= link_to("<<Back to Menu", {:controller => 'access', :action => 'menu'}, :class => 'back-link') %>
 
 <div class="post list"> 
   <h2>Posts</h2>
@@ -8,12 +8,14 @@
  <%= link_to("Add New Post", {:action => 'new'}, :class => 'action new') %>
   <table class="listing" summary="Post list">
     <tr class="header">
+      <th>Post Position</th>
       <th>Post Name</th>
       <th>Post Content</th>
       <th>Actions</th>
     </tr>
     <% @posts.each do |post| %>
     <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= post.position %></td>
       <td><%= post.name %></td>
       <td><%= post.content %></td>
        <td class="actions">

@@ -1,7 +1,7 @@
 <table summary="Comment form fields">
   <tr>
     <th><%= f.label(:comment) %></th>
-    <td><%= f.text_field(:comment) %></td>
+    <td><%= f.text_field(:content) %></td>
   </tr>
   <tr>
     <th><%= f.label(:author) %></th>

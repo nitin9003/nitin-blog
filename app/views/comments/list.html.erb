@@ -8,6 +8,7 @@
  <%= link_to("Add New Comment", {:action => 'new', :post_id => @post.id}, :class => 'action new') %>
   <table class="listing" summary="Comment list">
     <tr class="header">
+      <th>Position</th>
       <th>Comment</th>
       <th>Author</th>
       <th>Email</th>
@@ -15,6 +16,7 @@
     </tr>
     <% @comments.each do |comment| %>
     <tr>
+      <td><%= comment.position %></td>
       <td><%= comment.content %></td>
       <td><%= comment.author %></td>
       <td><%= comment.email %></td>

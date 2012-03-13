@@ -4,11 +4,7 @@
   <h2>Show Posts</h2>
   <table summary="Post detail view">
     <tr>
-      <th>Position</th>
-      <td><%= @post.position %></td>
-    </tr>
-    <tr>
-      <th>Post</th>
+      <th>Posts</th>
       <td><%= @post.name %></td>
     </tr>
     <tr>

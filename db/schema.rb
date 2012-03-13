@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120310214430) do
+ActiveRecord::Schema.define(:version => 20120313093308) do
 
   create_table "admins", :force => true do |t|
     t.string   "username",        :limit => 25,                 :null => false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120310214430) do
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
+    t.integer  "position",                   :null => false
     t.text     "content",                    :null => false
     t.string   "author",                     :null => false
     t.string   "email",      :default => "", :null => false
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20120310214430) do
 
   create_table "posts", :force => true do |t|
     t.integer  "admin_id"
+    t.integer  "position",   :null => false
     t.string   "name",       :null => false
     t.text     "content",    :null => false
     t.datetime "created_at", :null => false

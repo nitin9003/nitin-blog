@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
 
   layout 'admin'
+  before_filter :confirm_logged_in
 
   def index
   list
@@ -48,7 +49,7 @@ class AdminsController < ApplicationController
        redirect_to(:action => 'list')
     else
        # If save fails, redisplay the form so user can fix problems
-       render('edit')
+       render('edit')  
     end
   end
  

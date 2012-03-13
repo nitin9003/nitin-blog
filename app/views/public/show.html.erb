@@ -1,0 +1,12 @@
+# <h2><%= @comment.name %></h2>
+
+#<% @post.comments.each do |comment| %>
+#   <div class="comment">
+#     <% case comment.content_type
+#       when 'HTML' %>
+#         <%= raw(sanitize(comment.content, :tags => ['strong', 'em', 'a'])) %>
+#     <% when 'text' %>
+#        <p><%= comment.content %></p>
+#     <% end %>
+#    </div>
+# <% end %>
