@@ -1,13 +1,9 @@
 <% posts ||= [] %>
+
 <ul>
 <% posts.each do |post| %>
   <li>
-   <%= post.name %>
-   <ul>
-   <% post.comments.each.do |comment| %>
-     <li><%= link_to(comment.name, :action => 'show', :id => comment.permalink) %></li>
-  <% end %>
-</ul>
-</li>
+   <%= link_to(post.name, {:action => 'show', :id => post.id}) %>
+   </li>
 <% end %>
 </ul>

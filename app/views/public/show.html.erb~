@@ -1,12 +1,10 @@
-# <h2><%= @comment.name %></h2>
-
-#<% @post.comments.each do |comment| %>
-#   <div class="comment">
-#     <% case comment.content_type
-#       when 'HTML' %>
-#         <%= raw(sanitize(comment.content, :tags => ['strong', 'em', 'a'])) %>
-#     <% when 'text' %>
-#        <p><%= comment.content %></p>
-#     <% end %>
-#    </div>
-# <% end %>
+<h1><%= @post.name %></h1>
+<p><%= @post.content %><p>
+<ul>
+<% @post.comments.each do |comment|%>
+<li>
+<p><%= comment.content %></p>
+<%= link_to(comment.author, :action => 'mailto:#{comment.email}') %>
+</li>
+<% end %>
+</ul>

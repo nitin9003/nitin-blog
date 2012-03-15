@@ -13,7 +13,7 @@
      </div>
      <div id="main">
        <div id="navigation">
-       <%= render(:partial => 'layouts/navigation', :locals => {:posts => @posts}) %>
+       <%= render(:partial => 'layouts/navigation', :locals =>{:posts => @posts}) %>
         </div>
         <div id="content">
             <%= yield %>

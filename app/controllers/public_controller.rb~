@@ -9,7 +9,7 @@ class PublicController < ApplicationController
   end
 
    def show
-   @post = Post.where(:permalink => params[:id]).first
+   @post = Post.where(:id => params[:id])
    redirect_to(:action => 'index') unless @post
   end
 
