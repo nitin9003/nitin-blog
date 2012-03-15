@@ -1,0 +1,16 @@
+class Post < ActiveRecord::Base
+
+ belongs_to :admin
+ has_many :comments
+
+ validates_presence_of :name #:message => ^'Username is required'
+#:presence => true,
+	#		:length => { :within => 8..25}
+
+# validates :content,	:presence => true
+
+# validates :position,	:presense => true
+
+ 
+
+end

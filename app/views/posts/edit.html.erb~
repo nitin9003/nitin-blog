@@ -4,7 +4,7 @@
   <h2>Update Post</h2>
 
   <%= form_for(:post, :url => {:action => 'update', :id => @post.id}) do |f| %>
-
+<%= f.error_messages %>
     
     <%= render(:partial => "form", :locals => {:f => f}) %>
    

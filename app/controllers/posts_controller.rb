@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post_count = Post.count + 1
   end
 
   def create
@@ -32,12 +33,14 @@ class PostsController < ApplicationController
        redirect_to(:action => 'list')
     else
        # If save fails, redisplay the form so user can fix problems
-       render('new')
+       @post_count = Post.count + 1
+        render('new')
     end
   end
 
   def  edit
     @post = Post.find(params[:id])
+    @post_count = Post.count
   end
   
   def update
@@ -50,6 +53,7 @@ class PostsController < ApplicationController
        redirect_to(:action => 'show', :id => @post.id)
     else
        # If save fails, redisplay the form so user can fix problems
+       @post_count = Post.count
        render('edit')
     end
   end

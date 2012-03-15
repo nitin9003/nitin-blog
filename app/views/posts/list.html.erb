@@ -10,6 +10,7 @@
     <tr class="header">
       <th>Post Position</th>
       <th>Post Name</th>
+      <th>Visible</th>
       <th>Post Content</th>
       <th>Actions</th>
     </tr>
@@ -17,6 +18,7 @@
     <tr class="<%= cycle('odd', 'even') %>">
       <td><%= post.position %></td>
       <td><%= post.name %></td>
+      <td><%= post.visible %></td>
       <td><%= post.content %></td>
        <td class="actions">
         <%= link_to("View Comments", {:controller => 'comments', :action => 'list', :post_id => post.id}, :class => 'action show') %>  

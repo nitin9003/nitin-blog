@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120313093308) do
+ActiveRecord::Schema.define(:version => 20120315081949) do
 
   create_table "admins", :force => true do |t|
     t.string   "username",        :limit => 25,                 :null => false
@@ -34,11 +34,16 @@ ActiveRecord::Schema.define(:version => 20120313093308) do
 
   create_table "posts", :force => true do |t|
     t.integer  "admin_id"
-    t.integer  "position",   :null => false
-    t.string   "name",       :null => false
-    t.text     "content",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "position",                        :null => false
+    t.string   "name",                            :null => false
+    t.text     "content",                         :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "visible",      :default => false
+    t.string   "content_type"
+    t.string   "permalink"
   end
+
+  add_index "posts", ["permalink"], :name => "index_posts_on_permalink"
 
 end

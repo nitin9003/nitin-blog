@@ -11,6 +11,9 @@ module PostsHelper
 	     content_tag(:span, options[:false], :class => options[:false_class])
 	end
   end
+# <% text = Post.content %>
+
+# <%= simple_format(word_wrap(text, :line_width => 30)) %>
 
 
 end

@@ -1,15 +1,32 @@
+<%= render(:partial => 'shared/error_messages', :locals => {:object => @post}) %>
+
 <table summary="Post form fields">
-  <tr>
+   <tr>
     <th><%= f.label(:position) %></th>
-    <td><%= f.text_field(:position) %></td>
+    <td><%= f.select(:position, 1..@post_count) %></td>
   </tr>
   <tr>
     <th><%= f.label(:name) %></th>
     <td><%= f.text_field(:name) %></td>
   </tr>
   <tr>
+    <th><%= f.label(:visible) %></th>
+    <td><%= f.check_box(:visible) %></td>
+  </tr>
+  <tr>
+     <th><%= f.label(:content_type) %></th>
+     <td>
+	<%= f.radio_button(:content_type, 'text') %> Text
+	<%= f.radio_button(:content_type, 'HTML') %> HTML
+     </td>
+  </tr>
+  <tr>
     <th><%= f.label(:content) %></th>
     <td><%= f.text_area(:content, :size => "100x10" ) %></td>
+  </tr>
+  <tr>
+  <th><%= f.label(:created) %></th>
+    <td><%= f.datetime_select(:created_at) %></td>
   </tr>
 </table>
 
