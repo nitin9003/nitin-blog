@@ -1,12 +1,20 @@
-# <h2><%= @comment.name %></h2>
-
-#<% @post.comments.each do |comment| %>
-#   <div class="comment">
-#     <% case comment.content_type
-#       when 'HTML' %>
-#         <%= raw(sanitize(comment.content, :tags => ['strong', 'em', 'a'])) %>
-#     <% when 'text' %>
-#        <p><%= comment.content %></p>
-#     <% end %>
-#    </div>
-# <% end %>
+<<<<<<< HEAD
+<h2><%= @post.name %></h2>
+<%= @post.content %>
+<ul>
+<% @post.comments do |comment| %>
+<li><%= comment.content %></li>
+<li><%= mail_to(comment.email, name = comment.author) %></li>
+<% end %>
+=======
+ <h2><%= @post.name %></h2>
+<p><%= @post.content %></p>
+<ul>
+<% @post.comments.each do |comment| %>
+    <li>
+	<p><%= comment.content %></p>
+	<p><%= mail_to(comment.email,comment.author) %></p>
+    </li>
+     <% end %>
+>>>>>>> 5ab993782606d51cb6d451d00b3eb2d532979dd0
+</ul>

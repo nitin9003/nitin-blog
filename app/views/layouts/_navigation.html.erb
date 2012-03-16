@@ -1,4 +1,5 @@
 <% posts ||= [] %>
+
 <ul>
 <% posts.each do |post| %>
 <li><%= link_to(post.name, {:action => 'show', :id => post.id}) %></li>

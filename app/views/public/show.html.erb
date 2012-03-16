@@ -1,8 +1,10 @@
 <h2><%= @post.name %></h2>
-<%= @post.content %>
+<p><%= @post.content %></p>
 <ul>
-<% @post.comments do |comment| %>
-<li><%= comment.content %></li>
-<li><%= mail_to(comment.email, name = comment.author) %></li>
-<% end %>
+<% @post.comments.each do |comment| %>
+    <li>
+	<p><%= comment.content %></p>
+	<p><%= mail_to(comment.email,comment.author) %></p>
+    </li>
+     <% end %>
 </ul>
