@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20120315081949) do
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
-    t.integer  "position",                   :null => false
+    t.integer  "position"
     t.text     "content",                    :null => false
     t.string   "author",                     :null => false
     t.string   "email",      :default => "", :null => false

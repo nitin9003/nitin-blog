@@ -1,0 +1,13 @@
+<% posts ||= [] %>
+
+<ul>
+<% posts.each do |post| %>
+<<<<<<< HEAD
+<li><%= link_to(post.name, {:action => 'show', :id => post.id}) %></li>
+=======
+  <li>
+   <%= link_to(post.name, {:action => 'show', :id => post.id}) %>
+   </li>
+>>>>>>> 5ab993782606d51cb6d451d00b3eb2d532979dd0
+<% end %>
+</ul>  

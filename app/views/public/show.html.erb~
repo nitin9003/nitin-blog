@@ -1,13 +1,4 @@
-<<<<<<< HEAD
 <h2><%= @post.name %></h2>
-<%= @post.content %>
-<ul>
-<% @post.comments do |comment| %>
-<li><%= comment.content %></li>
-<li><%= mail_to(comment.email, name = comment.author) %></li>
-<% end %>
-=======
- <h2><%= @post.name %></h2>
 <p><%= @post.content %></p>
 <ul>
 <% @post.comments.each do |comment| %>
@@ -16,5 +7,28 @@
 	<p><%= mail_to(comment.email,comment.author) %></p>
     </li>
      <% end %>
->>>>>>> 5ab993782606d51cb6d451d00b3eb2d532979dd0
 </ul>
+
+<div class="comment new">
+  <h2>Post Comment</h2>
+<%= form_for(:comment, :html => { :multipart => true }, :url => {:action => 'create'}) do |f| %>
+
+<table summary="Comment form fields">
+   <tr>
+    <th><%= f.label(:content, "Comment") %></th>
+    <td><%= f.text_field(:content) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:author, "Name") %></th>
+    <td><%= f.text_field(:author) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:email, "Email") %></th>
+    <td><%= f.text_field(:email) %></td>
+  </tr>
+
+  <div class="form-buttons">
+       <%= submit_tag("Comment") %>
+  </div>
+</div>
+
