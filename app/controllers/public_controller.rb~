@@ -1,41 +1,38 @@
-class PublicController < ApplicationController
+class PublicController < CommentsController
   
  # layout 'public'
   before_filter :setup_navigation
+  before_filter :find_post
   
 
-  def index 
-    #Intro Text 
-  end
+        def index
+        end
 
    def show
-   @post = Post.where(:id => params[:id]).first
+   @post = Post.find(params[:id])
    redirect_to(:action => 'index') unless @post
-  end
+   end
    
-  def new
-    @comment = Comment.new()
-  end
+   def new
+    @comment = Comment.new(:post_id => @post.id)
+   end
 
-# :post_id => @post.id
-
-  def create
+   
+   
+   def create
     # Instantiate a new object using form parameters
-	@post = Post.where(:id => params[:id])
     @comment = Comment.new(params[:comment])
     # Save the object
     if @comment.save
        # If save succeeds, redirect to the list action
-     @post.comments << @comment
-      redirect_to(:action => 'show')
-
-#  :post_id => @comment.post_id
-    
+       flash[:notice] = "Comment Posted."
+       redirect_to(:action => 'show', :post_id => @comment.post_id)
     else
        # If save fails, redisplay the form so user can fix problems
-       render('new')
+       render('show')
     end
   end
+   
 
 
  private
@@ -44,4 +41,9 @@ class PublicController < ApplicationController
     @posts = Post.all
   end
 
+  def find_post
+    if params[:id]
+    @post = Post.find_by_id(params[:id])
+    end
+  end
 end

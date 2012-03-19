@@ -1,9 +1,9 @@
-<%= link_to("<<Back to List", {:action => 'list', :post_id => @post_id}, :class => 'back-link') %>
+<%= link_to("<<Back to List", post_comment_path(@post)) %>
 
 <div class="comment edit">
   <h2>Edit Comment</h2>
 
-  <%= form_for(:comment, :url => {:action => 'update', :id => @comment.id, :post_id => @post_id}) do |f| %>
+  <%= form_for(:comment, :url => {:action => 'update', :id => @comment.id, :post_id => @post.id}) do |f| %>
     
     <%= render(:partial => "form", :locals => {:f => f}) %>
    

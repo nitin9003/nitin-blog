@@ -1,0 +1,13 @@
+
+<div class="comment new">
+  <h2>Post Comment</h2>
+  <%= form_for(:comment, :url => {:action => 'create'}) do |f| %>
+  
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+   
+    <div class="form-buttons">
+       <%= submit_tag("Post Comment") %>
+    </div>
+
+  <% end %>
+</div>

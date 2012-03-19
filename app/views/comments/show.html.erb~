@@ -1,8 +1,14 @@
-<%= link_to("<<Back to List", {:action => 'list', :post_id => @post.id}, :class => 'back-link') %>
+<% @page_title = "Show Comment: #{@comment.author}" %> 
+
+<%= link_to("<<Back to List", post_comment_path(@comments), :class => 'back-link') %>
 
 <div class="comment show">
   <h2>Show Comments</h2>
   <table summary="Comment detail view">
+    <tr>
+      <th>Position</th>
+      <td><%= @comment.position %></td>
+    </tr
     <tr>
       <th>Comments</th>
       <td><%= @comment.content %></td>

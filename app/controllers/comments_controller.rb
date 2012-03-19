@@ -6,38 +6,28 @@ class CommentsController < ApplicationController
  before_filter :find_post
 
   def index
-    list
-    render('list')
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
   end
-
-  def list
-    @comments = Comment.order("comments.position ASC").where(:post_id => @post.id)
-  end 
 
   def show
     @comment = Comment.find(params[:id])
+    @posts = Post.order('position ASC')
   end
 
   def new
-    @comment = Comment.new(:post_id => @post.id)
+    @comment = Comment.new
   end
 
   def create
-    # Instantiate a new object using form parameters
-    @comment = Comment.new(params[:comment])
-    # Save the object
-    if @comment.save
-       # If save succeeds, redirect to the list action
-       flash[:notice] = "Comment Posted."
-       redirect_to(:action => 'list', :post_id => @comment.post_id)
-    else
-       # If save fails, redisplay the form so user can fix problems
-       render('new')
-    end
+	@post = Post.find(params[:post_id])
+	@post.comments.create(params[:comment])
+	
   end
 
   def  edit
     @comment = Comment.find(params[:id])
+    @posts = Post.order('position ASC')
   end
   
   def update
@@ -50,7 +40,8 @@ class CommentsController < ApplicationController
        redirect_to(:action => 'show', :id => @comment.id, :post_id => @comment.post_id)
     else
        # If save fails, redisplay the form so user can fix problems
-       render('edit')
+        @posts = Post.order('positin ASC')
+    	render('edit')
     end
   end
 
@@ -60,7 +51,6 @@ class CommentsController < ApplicationController
  
   def destroy
     Comment.find(params[:id]).destroy
-    @comment.destroy
     flash[:notice] = "Comment Deleted."
     redirect_to(:action => 'list', :post_id => @post.id)
   end

@@ -1,8 +1,10 @@
-<%= link_to("<<Back to List", {:action => 'list', :post_id => @post.id}, :class => 'back-link') %>
+<% @page_title = "Create Comment" %>
+
+<%= link_to("<<Back to list", {:action => 'list', :post_id => @post.id}, :class => 'back-link') %>
 
 <div class="comment new">
   <h2>Post Comment</h2>
-  <%= form_for(:comment, :html => { :multipart => true }, :url => {:action => 'create', :post_id => @post.id}) do |f| %>
+  <%= form_for(:comment, :url => {:action => 'create', :post_id => @post.id}) do |f| %>
   
     <%= render(:partial => "form", :locals => {:f => f}) %>
    
@@ -12,3 +14,5 @@
 
   <% end %>
 </div>
+
+<%= params.inspect %>

@@ -1,0 +1,32 @@
+
+<%= @page_title = "Comments List" %> 
+
+<%= link_to("<<Back to Post List", {:controller => 'posts', :action => 'list'}, :class => 'back-link') %>
+
+<div class="comment list"> 
+  <h2>Comments</h2>
+
+ <%= link_to("Add New Comment", {:action => 'new', :post_id => @post.id}, :class => 'action new') %>
+  <table class="listing" summary="Comment list">
+    <tr class="header">
+      <th>Position</th>
+      <th>Comment</th>
+      <th>Author</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.position %></td>
+      <td><%= comment.content %></td>
+      <td><%= comment.author %></td>
+      <td><%= comment.email %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => comment.id, :post_id => @post.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => comment.id, :post_id => @post.id}, :class => 'action edit') %>
+        <%= link_to("Delete",{:action => 'delete', :id => comment.id, :post_id => @post.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

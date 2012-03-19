@@ -8,27 +8,4 @@
     </li>
      <% end %>
 </ul>
-
-<div class="comment new">
-  <h2>Post Comment</h2>
-<%= form_for(:comment, :html => { :multipart => true }, :url => {:action => 'create'}) do |f| %>
-
-<table summary="Comment form fields">
-   <tr>
-    <th><%= f.label(:content, "Comment") %></th>
-    <td><%= f.text_field(:content) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:author, "Name") %></th>
-    <td><%= f.text_field(:author) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:email, "Email") %></th>
-    <td><%= f.text_field(:email) %></td>
-  </tr>
-
-  <div class="form-buttons">
-       <%= submit_tag("Comment") %>
-  </div>
-  <% end %>
-</div>
+<%= link_to post_public_index_path(@post) %>

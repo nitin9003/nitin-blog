@@ -2,12 +2,14 @@ Blog::Application.routes.draw do
  
   root :to => 'public#index'
 
-resources :posts
+ resources :posts do
+ 	resources :comments
+ end
 
-resources :comments
+# resources :public
 
- # match 'admin', :to => 'access#menu'
- # match 'show/:id', :to => 'public#show'
+  match 'admin', :to => 'access#menu'
+  match 'show/:post_id', :to => 'public#show'
   
 
   # The priority is based upon order of creation:
